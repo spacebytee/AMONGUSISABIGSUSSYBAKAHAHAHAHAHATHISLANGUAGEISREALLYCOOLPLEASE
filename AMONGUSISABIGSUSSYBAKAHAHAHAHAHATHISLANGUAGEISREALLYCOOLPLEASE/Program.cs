@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -16,7 +17,9 @@ namespace AmongUsLanguage
         static int currentLine = 0;
         static void Main(string[] args)
         {
-            TextReader tr = new StreamReader(AppDomain.CurrentDomain.BaseDirectory + @filename + ".auiabsbhhhhhtlircpuimldoioeppppppp");
+            string filePath = Process.GetCurrentProcess().MainModule.FileName;
+            string finalFolderPath = System.IO.Path.GetDirectoryName(filePath);
+            TextReader tr = new StreamReader(finalFolderPath + @"\" + @filename + ".auiabsbhhhhhtlircpuimldoioeppppppp");
             string code = tr.ReadLine();
             while (code != null)
             {
