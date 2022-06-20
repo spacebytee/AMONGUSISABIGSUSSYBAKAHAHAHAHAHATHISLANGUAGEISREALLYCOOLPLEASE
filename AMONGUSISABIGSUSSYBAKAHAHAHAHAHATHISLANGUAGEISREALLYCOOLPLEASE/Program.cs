@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -31,6 +31,7 @@ namespace AmongUsLanguage
                 RunLine(lines[currentLine]);
             
             }
+            while(true) { Console.ReadKey(); }
         }
         static void RunLine(string code)
         {
@@ -123,6 +124,31 @@ namespace AmongUsLanguage
                 {
                     values[player] -= 1;
                 }
+            }
+            if (code.Contains("WHO ARE YOU"))
+            {
+                string player = args[0];
+                int value;
+                try
+                {
+                    try
+                    {
+                        value = (int) Console.ReadLine()[0];
+                    } catch (ArgumentNullException)
+                    {
+                        value = 69;
+                    }
+                } catch (FormatException)
+                {
+                    value = 69;
+                }
+                if (values.ContainsKey(player))
+                {
+                    values[player] = value;
+                    currentLine += 1;
+                    return;
+                }
+                values.Add(player, value);
             }
             currentLine += 1;
         }
