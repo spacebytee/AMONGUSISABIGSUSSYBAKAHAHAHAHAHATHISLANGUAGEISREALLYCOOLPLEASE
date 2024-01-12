@@ -8,8 +8,6 @@ namespace AmongUsLanguage
 {
     class Program
     {
-        static string filename = "script";
-
         static Dictionary<string, int> values = new Dictionary<string, int>();
 
         static List<string> lines = new List<string>();
@@ -17,9 +15,7 @@ namespace AmongUsLanguage
         static int currentLine = 0;
         static void Main(string[] args)
         {
-            string filePath = Process.GetCurrentProcess().MainModule.FileName;
-            string finalFolderPath = System.IO.Path.GetDirectoryName(filePath);
-            TextReader tr = new StreamReader(finalFolderPath + @"\" + @filename + ".auiabsbhhhhhtlircpuimldoioeppppppp");
+            TextReader tr = new StreamReader("script.auiabsbhhhhhtlircpuimldoioeppppppp");
             string code = tr.ReadLine();
             while (code != null)
             {
